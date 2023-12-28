@@ -1,5 +1,5 @@
-export default {
-  ignorePatterns: ["public", "node_modules", "tmp"],
+module.exports = {
+  ignorePatterns: ["public", "node_modules", "tmp", "dist"],
   overrides: [
     {
       files: ["**/*.tsx", "**/*.ts"],
@@ -29,12 +29,11 @@ export default {
       plugins: ["import"],
       rules: {
         "no-undef": "off",
-        "no-anonymous-exports-page-templates": "warn",
-        "limited-exports-page-templates": "warn",
         "@typescript-eslint/consistent-type-definitions": ["error", "type"],
         "@typescript-eslint/consistent-type-exports": "error",
         "@typescript-eslint/consistent-type-imports": "error",
         "@typescript-eslint/no-floating-promises": "error",
+        "jest/no-deprecated-functions": "off",
         quotes: [
           "error",
           "double",
@@ -61,6 +60,10 @@ export default {
     },
     {
       files: ["*.js"],
+      parserOptions: {
+        ecmaVersion: 2020,
+        sourceType: "module",
+      },
       env: {
         browser: false,
         node: true,
