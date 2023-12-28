@@ -1,29 +1,30 @@
+import { type ReactNode } from "preact/compat";
+import { type PageContext } from "vike/types";
+
 import { PageContextProvider } from "./usePageContext";
-import "./PageShell.css";
 import "../global.css";
 
-export { PageShell };
+type PageShellProps = {
+  pageContext: PageContext;
+  children: ReactNode;
+};
 
-function PageShell({ pageContext, children }) {
+export const PageShell = ({ pageContext, children }: PageShellProps) => {
   return (
     <PageContextProvider pageContext={pageContext}>
-      <Header url={pageContext.urlPathname} />
+      <Header />
       <main>{children}</main>
     </PageContextProvider>
   );
-}
+};
 
-export function Header({ url }) {
+export const Header = () => {
   return (
     <header>
       <nav>
-        <a href="/" class={url == "/" && "active"}>
-          Home
-        </a>
-        <a href="/404" class={url == "/404" && "active"}>
-          404
-        </a>
+        <a href="/">Home</a>
+        <a href="/">About</a>
       </nav>
     </header>
   );
-}
+};

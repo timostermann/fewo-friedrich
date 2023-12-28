@@ -34,6 +34,8 @@ module.exports = {
         "@typescript-eslint/consistent-type-imports": "error",
         "@typescript-eslint/no-floating-promises": "error",
         "jest/no-deprecated-functions": "off",
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": ["error"],
         quotes: [
           "error",
           "double",

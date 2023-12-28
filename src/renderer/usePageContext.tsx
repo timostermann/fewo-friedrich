@@ -3,11 +3,12 @@
 
 import { createContext } from "preact";
 import { useContext } from "preact/hooks";
+import { type PageContext } from "vike/types";
 
 export { PageContextProvider };
 export { usePageContext };
 
-const Context = createContext(undefined);
+const Context = createContext<PageContext>(undefined);
 
 function PageContextProvider({ pageContext, children }) {
   return <Context.Provider value={pageContext}>{children}</Context.Provider>;

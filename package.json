@@ -10,6 +10,7 @@
     "lint": "npm run eslint . && npm run typecheck"
   },
   "dependencies": {
+    "classnames": "^2.5.0",
     "preact": "^10.16.0",
     "preact-render-to-string": "^6.2.0"
   },
